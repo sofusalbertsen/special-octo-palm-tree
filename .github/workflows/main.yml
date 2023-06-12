@@ -5,6 +5,6 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: sofusalbertsen@custom-action@main
+      - uses: sofusalbertsen/custom-action@main
         with:
           myInput: "sofus"
