@@ -1,10 +1,22 @@
-name: My first workflow
-on: [push]
+name: new-workflow
+on: [push, pull_request]
 
 jobs:
-  my-first-job:
-    name: My First Job
+  first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hello to the world
+      - name: hej 
         run: echo hello world
+      - name: Dump GitHub context
+        run: echo '${{ toJSON(github)}}'
+      - name: Dump Runner context
+        run: echo '${{ toJSON(runner)}}'
+      - name: run container
+        uses: docker://hello-world
+      - name: look at the os-release
+        run: cat /etc/os-release
+      - name: Group of log lines
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
